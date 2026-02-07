@@ -1,0 +1,11 @@
+<%= form_with model: dog, method: :get do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :age %>
+  <%= form.number_field :age %>
+  <%= form.label :weight %>
+  <%= form.number_field :weight %>
+  <%= form.label :breed %>
+  <%= form.text_field :breed %>
+  <%= form.submit %>
+<% end %>
