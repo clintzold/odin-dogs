@@ -49,11 +49,8 @@ class DogsController < ApplicationController
   def destroy
     @dog = Dog.find(params[:id])
 
-    if @dog.destroy
-      redirect_to dogs_path, notice: "@dog.name successfully deleted"
-    else
-      render :show, notice: "@dog.name could not be deleted"
-    end
+    @dog.destroy
+    redirect_to dogs_path, notice: "Dog was deleted"
   end
 
   private

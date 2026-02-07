@@ -11,3 +11,4 @@
   <b>Breed:</b> <%= @dog.breed %>
 </div>
 <%= link_to "Edit", edit_dog_path %>
+<%= button_to "Delete", dog_path(@dog), method: :delete %>
