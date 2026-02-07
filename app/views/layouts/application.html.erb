@@ -25,6 +25,13 @@
 
   <body>
     <%= render "layouts/links" %>
+    <% if flash.any? %>
+      <div style="margin: 10px 0 10px 0;">
+        <% flash.each do |type, msg| %>
+          <%= msg %>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

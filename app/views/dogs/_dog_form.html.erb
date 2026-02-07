@@ -1,11 +1,26 @@
-<%= form_with model: dog, method: :get do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :age %>
-  <%= form.number_field :age %>
-  <%= form.label :weight %>
-  <%= form.number_field :weight %>
-  <%= form.label :breed %>
-  <%= form.text_field :breed %>
-  <%= form.submit %>
+<%= form_with model: dog do |form| %>
+  <% if dog.errors.any? %>
+    <% dog.errors.each do |error| %>
+      <div>
+        <%= error.full_message %>
+      </div>
+    <% end %>
+  <% end %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+  <div>
+    <%= form.label :weight %>
+    <%= form.number_field :weight %>
+  </div>
+  <div>
+    <%= form.label :breed %>
+    <%= form.text_field :breed %>
+  </div>
+  <%= form.button %>
 <% end %>

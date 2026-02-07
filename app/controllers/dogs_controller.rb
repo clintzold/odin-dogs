@@ -10,6 +10,12 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
+    
+    if @dog.save
+      redirect_to dogs_path, notice: "#{@dog.name} successfully added!"
+    else
+      render :new, status: :unprocessable_content
+    end
   end
 
   def show
@@ -17,9 +23,17 @@ class DogsController < ApplicationController
   end
 
   def edit
+    @dog = Dog.find(params[:id])
   end
 
   def update
+    @dog = Dog.find(params[:id])
+    
+    if @dog.update(dog_params)
+      redirect_to dogs_path, notice: "#{@dog.name} was successfully updated!"
+    else
+      render :edit, status: :unprocessable_content
+    end
   end
 
   private

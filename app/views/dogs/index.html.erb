@@ -1,25 +1,9 @@
 <% if @dogs.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Weight</th>
-        <th>Breed</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @dogs.each do |dog| %>
-        <tr>
-          <td><%= dog.name %></td>
-          <td><%= dog.age %></td>
-          <td><%= dog.weight %></td>
-          <td><%= dog.breed %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <% @dogs.each do |dog| %>
+    <div>
+      Dog#<%= dog.id %> <%= dog.name %> <%= link_to "View Dog", dog_path(dog.id) %>
+    </div>
+  <% end %>
 <% else %>
     <h3>No dogs to display!</h3>
 <% end %>
